@@ -1,0 +1,35 @@
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: #0d3d32;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  display: inline-block;
+  background: #1a5f4a;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #0d3d32;
+  }
+}

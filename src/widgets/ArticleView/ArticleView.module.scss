@@ -1,0 +1,40 @@
+.article {
+  padding: 1rem 0;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.loading,
+.error {
+  padding: 2rem;
+  text-align: center;
+}
+
+.error {
+  color: #c00;
+}
+
+.cover {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.title {
+  color: #0d3d32;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.body {
+  color: #333;
+  line-height: 1.6;
+
+  :global(br) {
+    display: block;
+    content: '';
+    margin-top: 0.5em;
+  }
+}

@@ -1,0 +1,74 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[7].use[5]!./src/features/auth/LoginForm/LoginForm.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.LoginForm_wrap__BERaL {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.LoginForm_form__DDlal {
+  width: 100%;
+  max-width: 360px;
+  padding: 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.LoginForm_title__wbix5 {
+  margin: 0 0 1.5rem;
+  font-size: 1.25rem;
+  color: #0d3d32;
+}
+
+.LoginForm_error__alQ9h {
+  color: #c00;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.LoginForm_label__DuuY7 {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.LoginForm_input__Sqxz5 {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.LoginForm_input__Sqxz5:focus {
+  outline: none;
+  border-color: #1a5f4a;
+}
+
+.LoginForm_submit__Y1j7l {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #1a5f4a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.LoginForm_submit__Y1j7l:hover:not(:disabled) {
+  background: #0d3d32;
+}
+.LoginForm_submit__Y1j7l:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
