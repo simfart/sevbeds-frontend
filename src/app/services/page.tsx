@@ -1,4 +1,4 @@
-import { ServicesPage } from '@/screens/Services/ServicesPage';
+import { ServicesPage } from "@/pages/Services/ServicesPage";
 
 /** app/services/page.tsx → маршрут /services. Структура папок = URL. */
 export default function Page() {

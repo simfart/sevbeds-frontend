@@ -1,4 +1,4 @@
-import { ContactsPage } from '@/screens/Contacts/ContactsPage';
+import { ContactsPage } from "@/pages/Contacts/ContactsPage";
 
 /** app/contacts/page.tsx → маршрут /contacts */
 export default function Page() {
