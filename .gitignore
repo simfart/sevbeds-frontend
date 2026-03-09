@@ -21,3 +21,5 @@ Thumbs.db
 
 # Build output 
 dist/
+
+prisma/*.db
