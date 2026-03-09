@@ -1,4 +1,4 @@
-import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
+import { NotFoundPage } from '@/screens/NotFound/NotFoundPage';
 
 /**
  * not-found.tsx — специальный файл Next.js. Показывается при 404
