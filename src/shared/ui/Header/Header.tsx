@@ -1,8 +1,21 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import styles from "./Header.module.scss";
+
+const IconChevron = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+  >
+    <polyline points="6 9 12 15 18 9" />
+  </svg>
+);
 
 const IconMenu = ({ className }: { className?: string }) => (
   <svg
@@ -36,21 +49,36 @@ const IconX = ({ className }: { className?: string }) => (
 );
 
 const links = [
-  { label: "Медтехника", href: "#services" },
-  { label: "Условия аренды", href: "#models" },
-  { label: "Полезные статьи", href: "#how-it-works" },
-  //   { label: "FAQ", href: "#faq" },
-  //   { label: "Contact", href: "#contact" },
+  { label: "Аренда медтехники", href: "/services" },
+  { label: "Доставка и установка", href: "/delivery" },
+  { label: "Полезные статьи", href: "/articles" },
 ];
 
 export const Header: FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target as Node)
+      ) {
+        setServicesOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -60,13 +88,57 @@ export const Header: FC = () => {
           Медивера
         </AppLink>
         <div className={styles.desktopLinks}>
-          {links.map((link) => (
-            <a key={link.href} href={link.href} className={styles.link}>
-              {link.label}
-            </a>
-          ))}
-          <a href="#contact" className={styles.cta}>
-            Request Rental
+          <div className={styles.dropdown} ref={servicesRef}>
+            <button
+              className={styles.dropdownTrigger}
+              onClick={() => setServicesOpen(!servicesOpen)}
+            >
+              Аренда медтехники
+              <IconChevron
+                className={`${styles.chevron} ${
+                  servicesOpen ? styles.chevronOpen : ""
+                }`}
+              />
+            </button>
+
+            <div
+              className={`${styles.dropdownMenu} ${
+                servicesOpen ? styles.open : ""
+              }`}
+            >
+              <AppLink
+                href="/services/electric-beds"
+                className={styles.dropdownItem}
+              >
+                Аренда электро кроватей
+              </AppLink>
+
+              <AppLink
+                href="/services/mechanical-beds"
+                className={styles.dropdownItem}
+              >
+                Аренда механических кроватей
+              </AppLink>
+
+              <AppLink
+                href="/services/wheelchairs"
+                className={styles.dropdownItem}
+              >
+                Инвалидные кресла
+              </AppLink>
+            </div>
+          </div>
+
+          <AppLink href="/delivery" className={styles.link}>
+            Доставка и установка
+          </AppLink>
+
+          <AppLink href="/articles" className={styles.link}>
+            Полезные статьи
+          </AppLink>
+
+          <a href="tel:+79789789789" className={styles.cta}>
+            +7(978) 978-97-89
           </a>
         </div>
 
@@ -85,16 +157,16 @@ export const Header: FC = () => {
       </nav>
 
       <div className={`${styles.mobilePanel} ${open ? styles.open : ""}`}>
-        <div className={styles.mobileInner}>
+        <nav className={styles.mobileInner}>
           {links.map((link) => (
-            <a
+            <AppLink
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
               className={styles.mobileLink}
             >
               {link.label}
-            </a>
+            </AppLink>
           ))}
           <a
             href="#contact"
@@ -103,7 +175,7 @@ export const Header: FC = () => {
           >
             Заказать аренду
           </a>
-        </div>
+        </nav>
       </div>
     </header>
   );

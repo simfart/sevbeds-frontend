@@ -1,14 +1,16 @@
-import React from 'react';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import styles from './NotFoundPage.module.scss';
+import React from "react";
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import styles from "./NotFoundPage.module.scss";
 
 export function NotFoundPage() {
   return (
-    <div className={styles.page}>
-      <h1 className={styles.title}>404</h1>
-      <p className={styles.text}>Страница не найдена</p>
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <h1 className={styles.title}>404</h1>
+        <div className={styles.subtitle}>Страница не найдена.</div>
+      </div>
       <AppLink href="/" className={styles.link}>
-        На главную
+        Вернуться на главную
       </AppLink>
     </div>
   );

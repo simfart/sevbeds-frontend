@@ -9,7 +9,9 @@
   &.scrolled {
     border-bottom: 1px solid var(--glass-border);
     background: var(--glass);
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    box-shadow:
+      0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
     backdrop-filter: blur(24px);
   }
 
@@ -137,7 +139,9 @@
   padding: 0.75rem 1rem;
   font-size: 0.875rem;
   color: var(--muted-foreground);
-  transition: color 0.2s, background 0.2s;
+  transition:
+    color 0.2s,
+    background 0.2s;
   text-decoration: none;
 
   &:hover {
@@ -159,4 +163,90 @@
   color: var(--primary-foreground);
   text-align: center;
   text-decoration: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--foreground);
+  }
+}
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.25s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+
+  min-width: 220px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--glass);
+  backdrop-filter: blur(24px);
+
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  padding: 0.5rem;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+
+  transition: all 0.25s ease;
+}
+
+.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdownItem {
+  padding: 0.6rem 0.9rem;
+
+  border-radius: var(--radius);
+
+  font-size: 0.875rem;
+
+  color: var(--muted-foreground);
+  text-decoration: none;
+
+  transition:
+    background 0.2s,
+    color 0.2s;
+
+  &:hover {
+    background: rgba(77, 208, 225, 0.1);
+    color: var(--foreground);
+  }
 }
