@@ -85,7 +85,11 @@ export const Header: FC = () => {
     <header className={`${styles.root} ${scrolled ? styles.scrolled : ""}`}>
       <nav className={styles.nav}>
         <AppLink href="/" className={styles.logo}>
-          Медивера
+          <img
+            src="/images/M-Logo2.png"
+            alt="Логотип компании Медивера"
+            className={styles.navLogo}
+          />
         </AppLink>
         <div className={styles.desktopLinks}>
           <div className={styles.dropdown} ref={servicesRef}>
@@ -141,7 +145,9 @@ export const Header: FC = () => {
             +7(978) 978-97-89
           </a>
         </div>
-
+        <a href="tel:+79789789789" className={styles.ctaPhone}>
+          +7(978) 978-97-89
+        </a>
         <button
           type="button"
           onClick={() => setOpen(!open)}

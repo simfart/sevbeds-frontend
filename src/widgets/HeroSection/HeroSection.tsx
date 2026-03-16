@@ -1,0 +1,80 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import styles from "./HeroSection.module.scss";
+
+export function HeroSection() {
+  const [offsetY, setOffsetY] = useState(0);
+  const heroRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+    const handleScroll = () => {
+      setOffsetY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const visible = isVisible ? styles.visible : styles.hidden;
+
+  return (
+    <section ref={heroRef} className={styles.root}>
+      <div
+        className={styles.bgWrap}
+        style={{ transform: `translateY(${offsetY * 0.3}px)` }}
+      >
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="Modern luxury home care setting with natural sunlight"
+          fill
+          className={styles.bgImage}
+          priority
+          quality={90}
+        />
+      </div>
+
+      <div className={styles.overlay} />
+      <div className={styles.line} />
+
+      <div className={styles.content}>
+        <div className={styles.inner}>
+          <h1 className={`${styles.title} ${visible}`}>
+            Аренда медицинских кроватей для лежачих больных в Севастополе
+          </h1>
+          <p className={`${styles.subtitle} ${visible}`}>
+            Функциональные электрические и механические кровати для ухода за
+            больными. Привезём и установим в течение 24 часов.
+          </p>
+          <button
+            type="button"
+            onClick={scrollToContact}
+            className={`${styles.cta} ${visible}`}
+          >
+            Оставить заявку
+            <svg
+              className={styles.ctaIcon}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}

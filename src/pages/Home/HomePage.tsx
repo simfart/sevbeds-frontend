@@ -1,16 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 import styles from "./HomePage.module.scss";
+import { HeroSection } from "@/widgets/HeroSection/HeroSection";
+import { ServicesSection } from "@/widgets/Services/Services";
+import { AdvantagesSection } from "@/widgets/Advantages/Advantages";
 
-export function HomePage() {
+
+export const HomePage: FC = () => {
   return (
-    <div className={styles.hero}>
-      <h1 className={styles.title}>Аренда мед кроватей</h1>
-      <p className={styles.subtitle}>
-        Удобные кровати для ухода за больными на дому и в медучреждениях.
-      </p>
-      <a href="/contacts" className={styles.cta}>
-        Связаться с нами
-      </a>
-    </div>
+    <>
+      <HeroSection />
+      <ServicesSection />
+      <AdvantagesSection />
+    </>
   );
-}
+};
