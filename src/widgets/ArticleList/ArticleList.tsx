@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import styles from './ArticleList.module.scss';
+import React, { FC, useEffect, useState } from "react";
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import styles from "./ArticleList.module.scss";
 
 export type ArticlePreview = {
   id: string;
@@ -13,9 +13,9 @@ export type ArticlePreview = {
   createdAt: string;
 };
 
-const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
-export function ArticleList() {
+export const ArticleList: FC = () => {
   const [articles, setArticles] = useState<ArticlePreview[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -30,7 +30,8 @@ export function ArticleList() {
 
   if (loading) return <div className={styles.loading}>Загрузка…</div>;
   if (error) return <div className={styles.error}>Ошибка: {error}</div>;
-  if (!articles.length) return <div className={styles.empty}>Статей пока нет.</div>;
+  if (!articles.length)
+    return <div className={styles.empty}>Статей пока нет.</div>;
 
   return (
     <div className={styles.page}>
@@ -59,4 +60,4 @@ export function ArticleList() {
       </ul>
     </div>
   );
-}
+};

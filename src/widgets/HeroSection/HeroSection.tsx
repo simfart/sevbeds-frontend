@@ -1,21 +1,26 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./HeroSection.module.scss";
 
-export function HeroSection() {
+export const HeroSection: FC = () => {
   const [offsetY, setOffsetY] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    const frameId = requestAnimationFrame(() => {
+      setIsVisible(true);
+    });
     const handleScroll = () => {
       setOffsetY(window.scrollY);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const scrollToContact = () => {
