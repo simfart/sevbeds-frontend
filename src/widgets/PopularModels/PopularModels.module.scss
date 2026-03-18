@@ -1,185 +1,224 @@
-.root {
-  position: relative;
-  padding: 1.5rem 0 6rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+/* PopularModels section styles (moved from TSX utility classes) */
 
-  @media (min-width: 768px) {
+.section {
+  position: relative;
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section {
     padding-left: 3rem;
     padding-right: 3rem;
   }
+}
 
-  @media (min-width: 1024px) {
+@media (min-width: 1024px) {
+  .section {
     padding-left: 6rem;
     padding-right: 6rem;
   }
 }
 
-.dividerLine {
+.topDivider {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--color-primary), transparent);
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-primary, var(--primary, #14b8a6)),
+    transparent
+  );
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 72rem;
+  margin: 0 auto;
+  max-width: 72rem; /* ~ max-w-6xl */
 }
 
 .title {
   text-align: center;
-  font-family: var(--font-serif, serif);
-  font-size: 1.875rem;
+  font-family: var(--font-serif, ui-serif, Georgia, serif);
+  font-size: 1.875rem; /* text-3xl */
   font-weight: 700;
-  color: var(--color-foreground);
+  color: var(--color-foreground, var(--foreground, #0b1220));
   text-wrap: balance;
+}
 
-  @media (min-width: 768px) {
-    font-size: 2.25rem;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 3rem;
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.25rem; /* md:text-4xl */
   }
 }
 
-.titleDivider {
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3rem; /* lg:text-5xl */
+  }
+}
+
+.titleUnderline {
   margin: 0.5rem auto 0;
   height: 1px;
-  width: 4rem;
-  background-color: var(--color-accent);
+  width: 4rem; /* w-16 */
+  background: var(--color-accent, var(--accent, #14b8a6));
 }
 
 .subtitle {
   margin: 1rem auto 0;
-  max-width: 36rem;
+  max-width: 36rem; /* max-w-xl */
   text-align: center;
-  color: var(--color-muted-foreground);
   line-height: 1.625;
+  color: var(--color-muted-foreground, var(--muted-foreground, #64748b));
 }
 
 .grid {
-  margin-top: 4rem;
+  margin-top: 4rem; /* mt-16 */
   display: grid;
-  gap: 2rem;
+  gap: 2rem; /* gap-8 */
+}
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 .card {
   overflow: hidden;
-  border-radius: 1rem;
-  border: 1px solid var(--glass-border);
-  background: var(--glass);
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  backdrop-filter: blur(24px);
-  transition: all 0.7s ease;
-
-  &:hover {
-    box-shadow: 0 0 40px var(--teal-glow);
-  }
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  &.hidden {
-    opacity: 0;
-    transform: translateY(3rem);
-  }
-
-  &:hover .image {
-    transform: scale(1.05);
-  }
+  border-radius: 1rem; /* rounded-2xl */
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.14));
+  background: var(--glass, rgba(255, 255, 255, 0.06));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px);
+  transition:
+    opacity 700ms,
+    transform 700ms,
+    box-shadow 700ms;
+  will-change: transform, opacity, box-shadow;
 }
 
-.imageWrapper {
+.card:nth-child(1) {
+  transition-delay: 0ms;
+}
+.card:nth-child(2) {
+  transition-delay: 150ms;
+}
+.card:nth-child(3) {
+  transition-delay: 300ms;
+}
+
+.cardHidden {
+  opacity: 0;
+  transform: translateY(3rem); /* translate-y-12 */
+}
+
+.cardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  box-shadow: 0 0 40px var(--teal-glow, rgba(20, 184, 166, 0.35));
+}
+
+.imageWrap {
   position: relative;
-  aspect-ratio: 4 / 3;
   overflow: hidden;
+  aspect-ratio: 4 / 3;
 }
 
 .image {
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 500ms;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
 }
 
 .imageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgb(0 0 0 / 0.1), transparent);
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-foreground, #0b1220) 10%, transparent),
+    transparent
+  );
 }
 
 .content {
-  padding: 1.5rem;
+  padding: 1.5rem; /* p-6 */
 }
 
 .cardTitle {
-  font-family: var(--font-serif, serif);
-  font-size: 1.25rem;
+  font-family: var(--font-serif, ui-serif, Georgia, serif);
+  font-size: 1.25rem; /* text-xl */
   font-weight: 600;
-  color: var(--color-foreground);
+  color: var(--color-foreground, var(--foreground, #0b1220));
 }
 
-.featureList {
+.features {
   margin-top: 1rem;
-
-  & > * + * {
-    margin-top: 0.5rem;
-  }
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem; /* space-y-2 */
 }
 
-.featureItem {
+.feature {
   display: flex;
   align-items: center;
-  font-size: 0.875rem;
-  color: var(--color-muted-foreground);
+  font-size: 0.875rem; /* text-sm */
+  color: var(--color-muted-foreground, var(--muted-foreground, #64748b));
 }
 
 .bullet {
   margin-right: 0.5rem;
-  height: 0.375rem;
-  width: 0.375rem;
+  height: 0.375rem; /* h-1.5 */
+  width: 0.375rem; /* w-1.5 */
   border-radius: 9999px;
-  background-color: var(--color-accent);
-  flex-shrink: 0;
+  background: var(--color-accent, var(--accent, #14b8a6));
+  flex: 0 0 auto;
 }
 
-.priceRow {
-  margin-top: 1.25rem;
+.footer {
+  margin-top: 1.25rem; /* mt-5 */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .price {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
   font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: 0.025em;
-  color: var(--color-accent);
+  letter-spacing: 0.05em;
+  color: var(--color-accent, var(--accent, #14b8a6));
 }
 
-.ctaButton {
-  border-radius: 0.5rem;
-  background-color: var(--color-primary);
-  padding: 0.5rem 1rem;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.75rem;
+.button {
+  border: 0;
+  cursor: pointer;
+  border-radius: 0.5rem; /* rounded-lg */
+  background: var(--color-primary, var(--primary, #14b8a6));
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: 0.75rem; /* text-xs */
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-primary-foreground);
-  transition: all 0.2s ease;
+  letter-spacing: 0.08em; /* tracking-wider */
+  color: var(--color-primary-foreground, var(--primary-foreground, #06131a));
+  transition: box-shadow 200ms, transform 200ms;
+}
 
-  &:hover {
-    box-shadow: 0 0 20px var(--silver-glow);
-  }
+.button:hover {
+  box-shadow: 0 0 20px var(--silver-glow, rgba(226, 232, 240, 0.35));
+}
+
+.button:active {
+  transform: translateY(1px);
 }

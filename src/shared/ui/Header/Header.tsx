@@ -50,7 +50,7 @@ const IconX = ({ className }: { className?: string }) => (
 
 const links = [
   { label: "Аренда медтехники", href: "/services" },
-  { label: "Доставка и установка", href: "/delivery" },
+  { label: "Доставка и установка", href: "/dostavka-meditsinskih-krovatey" },
   { label: "Полезные статьи", href: "/articles" },
 ];
 
@@ -133,7 +133,10 @@ export const Header: FC = () => {
             </div>
           </div>
 
-          <AppLink href="/delivery" className={styles.link}>
+          <AppLink
+            href="/dostavka-meditsinskih-krovatey"
+            className={styles.link}
+          >
             Доставка и установка
           </AppLink>
 
