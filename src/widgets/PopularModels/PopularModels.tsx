@@ -6,30 +6,34 @@ import styles from "./PopularModels.module.scss";
 
 const models = [
   {
-    name: "ElectraCare Pro 3000",
+    name: "Электрическая кровать",
     image: "/images/electric-bed.jpg",
     features: [
-      "Full electric adjustment",
-      "Built-in side rails",
-      "Wireless remote",
+      "Полностью электрическая регулировка положения",
+      "Встроенные боковые ограждения для безопасности",
+      "Беспроводной пульт управления",
     ],
-    price: "From $120/month",
+    price: "от 3999₽/мес",
   },
   {
-    name: "ComfortRest Manual M1",
+    name: "Механическая кровать",
     image: "/images/manual-bed.jpg",
-    features: ["4-section mattress", "Heavy-duty crank", "Lockable wheels"],
-    price: "From $75/month",
+    features: [
+      "Ручное управление для стабильного и надёжного ухода",
+      "Усиленный механизм регулировки",
+      "Колёса с фиксацией для безопасного использования",
+    ],
+    price: "от 3999₽/мес",
   },
   {
-    name: "MobileLite Wheelchair",
+    name: "Инвалидная коляска",
     image: "/images/wheelchair.jpg",
     features: [
-      "Ultra-light aluminum",
-      "Foldable design",
-      "Adjustable footrests",
+      "Ультралёгкая алюминиевая рама",
+      "Складная конструкция для перевозки",
+      "Регулируемые подножки",
     ],
-    price: "From $45/month",
+    price: "от 1499₽/мес",
   },
 ];
 
@@ -68,15 +72,12 @@ export const PopularModelsSection: FC = () => {
       <div className={styles.topDivider} />
 
       <div className={styles.container}>
-        <h2 className={styles.title}>
-          Popular Models
-        </h2>
+        <h2 className={styles.title}>Популярные модели</h2>
         <div className={styles.titleUnderline} />
         <p className={styles.subtitle}>
-          Explore our most requested equipment, trusted by families and
-          healthcare providers.
+          Самые популярные модели медицинского оборудования для аренды,
+          проверенные семьями и специалистами здравоохранения.
         </p>
-
         <div className={styles.grid}>
           {models.map((model, i) => (
             <div
@@ -99,9 +100,7 @@ export const PopularModelsSection: FC = () => {
 
               {/* Content */}
               <div className={styles.content}>
-                <h3 className={styles.cardTitle}>
-                  {model.name}
-                </h3>
+                <h3 className={styles.cardTitle}>{model.name}</h3>
                 <ul className={styles.features}>
                   {model.features.map((feature) => (
                     <li key={feature} className={styles.feature}>
@@ -111,12 +110,8 @@ export const PopularModelsSection: FC = () => {
                   ))}
                 </ul>
                 <div className={styles.footer}>
-                  <span className={styles.price}>
-                    {model.price}
-                  </span>
-                  <button className={styles.button}>
-                    Details
-                  </button>
+                  <span className={styles.price}>{model.price}</span>
+                  <button className={styles.button}>Подробнее</button>
                 </div>
               </div>
             </div>

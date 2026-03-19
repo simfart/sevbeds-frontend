@@ -95,6 +95,13 @@
 }
 
 .ctaPhone {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary-foreground);
+  transition: all 0.2s;
   @media (min-width: 768px) {
     display: none;
   }

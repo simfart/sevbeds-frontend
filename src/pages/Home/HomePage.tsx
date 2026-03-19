@@ -12,7 +12,6 @@ export const HomePage: FC = () => {
       <HeroSection />
       <ServicesSection />
       <AdvantagesSection />
-      <HowItWorksSection />
       <PopularModelsSection />
     </>
   );

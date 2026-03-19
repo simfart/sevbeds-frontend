@@ -2,9 +2,10 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
-import styles from "./Layout.module.scss";
 import { Header } from "@/shared/ui/Header";
+import { SiteFooter } from "@/shared/ui/Footer";
+
+import styles from "./Layout.module.scss";
 
 /** В Next.js текущий путь берём из usePathname() (клиентский хук). Серверные компоненты получают путь из заголовков/параметров. */
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -39,11 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         // </header>
       )}
       <main className={styles.main}>{children}</main>
-      {!isAdmin && (
-        <footer className={styles.footer}>
-          <p>© {new Date().getFullYear()} Аренда медицинских кроватей</p>
-        </footer>
-      )}
+      {!isAdmin && <SiteFooter />}
     </div>
   );
 }

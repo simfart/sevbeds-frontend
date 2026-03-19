@@ -1,6 +1,7 @@
 "use client";
 
 import { FC, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import styles from "./Header.module.scss";
 
@@ -85,10 +86,11 @@ export const Header: FC = () => {
     <header className={`${styles.root} ${scrolled ? styles.scrolled : ""}`}>
       <nav className={styles.nav}>
         <AppLink href="/" className={styles.logo}>
-          <img
-            src="/images/M-Logo2.png"
+          <Image
+            src="/images/M-logo-center.png"
             alt="Логотип компании Медивера"
-            className={styles.navLogo}
+            width={100}
+            height={100}
           />
         </AppLink>
         <div className={styles.desktopLinks}>
@@ -145,11 +147,12 @@ export const Header: FC = () => {
           </AppLink>
 
           <a href="tel:+79789789789" className={styles.cta}>
-            +7(978) 978-97-89
+            +7(978) 792-6774
           </a>
         </div>
+
         <a href="tel:+79789789789" className={styles.ctaPhone}>
-          +7(978) 978-97-89
+          +7(978) 792-6774
         </a>
         <button
           type="button"
