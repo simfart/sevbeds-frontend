@@ -1,6 +1,7 @@
 "use client";
 
 import React, { FC, useEffect, useState } from "react";
+import Image from "next/image";
 import styles from "./ArticleView.module.scss";
 
 type Article = {
@@ -37,14 +38,14 @@ export const ArticleView: FC<{ slug: string }> = ({ slug }) => {
   return (
     <article className={styles.article}>
       {article.coverUrl && (
-        <img
+        <Image
           src={`${API}${article.coverUrl}`}
           alt=""
           className={styles.cover}
           width={800}
           height={450}
-          loading="eager"
-          fetchPriority="high"
+          priority
+          unoptimized
         />
       )}
       <h1 className={styles.title}>{article.title}</h1>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { FC, useEffect, useState } from "react";
+import Image from "next/image";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import styles from "./ArticleList.module.scss";
 
@@ -41,13 +42,14 @@ export const ArticleList: FC = () => {
           <li key={a.id} className={styles.item}>
             <AppLink href={`/articles/${a.slug}`} className={styles.link}>
               {a.coverUrl && (
-                <img
+                <Image
                   src={`${API}${a.coverUrl}`}
                   alt=""
                   className={styles.cover}
                   width={320}
                   height={180}
                   loading="lazy"
+                  unoptimized
                 />
               )}
               <div className={styles.content}>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { api, apiFormData } from "@/shared/api/client";
 import styles from "./ArticleAdmin.module.scss";
 
@@ -28,7 +29,6 @@ export function ArticleAdmin() {
   const [submitError, setSubmitError] = useState("");
 
   const load = () => {
-    setLoading(true);
     api<Article[]>("/api/articles/admin/list")
       .then(setArticles)
       .catch((e) => setError(e.message))
@@ -85,7 +85,7 @@ export function ArticleAdmin() {
   return (
     <div className={styles.wrap}>
       <div className={styles.toolbar}>
-        <a href="/">На сайт</a>
+        <Link href="/">На сайт</Link>
         <button type="button" onClick={handleLogout} className={styles.logout}>
           Выйти
         </button>

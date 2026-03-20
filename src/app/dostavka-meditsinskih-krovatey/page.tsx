@@ -1,4 +1,4 @@
-import { DeliveryPage } from "@/pages/Delivery";
+import { DeliveryPage } from "@/views/Delivery";
 
 export const metadata = {
   title: "Доставка и установка медицинских кроватей в Севастополе",

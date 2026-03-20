@@ -10,7 +10,6 @@ import {
   Spectral,
   Manrope,
   Onest,
-  Plus_Jakarta_Sans,
 } from "next/font/google";
 import "./globals.css";
 import { Layout } from "@/shared/ui/Layout/Layout";
