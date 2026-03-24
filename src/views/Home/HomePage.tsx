@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { HeroSection } from "@/widgets/HeroSection";
-import { ServicesSection } from "@/widgets/Services";
 import { AdvantagesSection } from "@/widgets/Advantages";
-import { PopularModelsSection } from "@/widgets/PopularModels";
+import { ServicesSection } from "@/widgets/Services";
+import { TestimonialsSection } from "@/widgets/Testimonials";
 
 export const HomePage: FC = () => {
   return (
@@ -10,7 +10,7 @@ export const HomePage: FC = () => {
       <HeroSection />
       <ServicesSection />
       <AdvantagesSection />
-      <PopularModelsSection />
+      <TestimonialsSection />
     </>
   );
 };

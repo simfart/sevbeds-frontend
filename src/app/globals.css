@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
   /* Шрифты: значения задаются на <html> через next/font, здесь — fallback для всех стилей */
   --font-sans: var(--font-inter), "Inter", sans-serif;
@@ -45,6 +43,8 @@
   --glass-border: rgba(255, 255, 255, 0.3);
   --silver-glow: rgba(192, 192, 192, 0.4);
   --teal-glow: rgba(77, 208, 225, 0.3);
+  --silver-glow2: 0 4px 24px rgba(192, 192, 192, 0.25);
+  --teal-glow2: 0 4px 24px rgba(77, 208, 225, 0.35);
 }
 
 @theme inline {
@@ -55,6 +55,8 @@
   --color-glass-border: var(--glass-border);
   --color-silver-glow: var(--silver-glow);
   --color-teal-glow: var(--teal-glow);
+  --color-silver-glow2: var(--silver-glow2);
+  --color-teal-glow2: var(--teal-glow2);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

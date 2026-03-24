@@ -1,0 +1,1 @@
+export { ElectricBeds } from "./ElectricBeds";

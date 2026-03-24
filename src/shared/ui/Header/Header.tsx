@@ -50,9 +50,15 @@ const IconX = ({ className }: { className?: string }) => (
 );
 
 const links = [
-  { label: "Аренда медтехники", href: "/services" },
-  { label: "Доставка и установка", href: "/dostavka-meditsinskih-krovatey" },
-  { label: "Полезные статьи", href: "/articles" },
+  {
+    href: "/servises/electric-hospital-beds",
+    label: "Аренда кроватей с электроприводом",
+  },
+  {
+    href: "/servises/manual-hospital-beds",
+    label: "Аренда механических кроватей",
+  },
+  { href: "/servises/wheelchairs", label: "Аренда инвалидных колясок" },
 ];
 
 export const Header: FC = () => {
@@ -112,33 +118,20 @@ export const Header: FC = () => {
                 servicesOpen ? styles.open : ""
               }`}
             >
-              <AppLink
-                href="/services/electric-beds"
-                className={styles.dropdownItem}
-              >
-                Аренда электро кроватей
-              </AppLink>
-
-              <AppLink
-                href="/services/mechanical-beds"
-                className={styles.dropdownItem}
-              >
-                Аренда механических кроватей
-              </AppLink>
-
-              <AppLink
-                href="/services/wheelchairs"
-                className={styles.dropdownItem}
-              >
-                Инвалидные кресла
-              </AppLink>
+              {links.map((link) => (
+                <AppLink
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={styles.mobileLink}
+                >
+                  {link.label}
+                </AppLink>
+              ))}
             </div>
           </div>
 
-          <AppLink
-            href="/dostavka-meditsinskih-krovatey"
-            className={styles.link}
-          >
+          <AppLink href="/delivery-and-installation" className={styles.link}>
             Доставка и установка
           </AppLink>
 
@@ -146,13 +139,13 @@ export const Header: FC = () => {
             Полезные статьи
           </AppLink>
 
-          <a href="tel:+79789789789" className={styles.cta}>
-            +7(978) 792-6774
+          <a href="tel:+79789410960" className={styles.cta}>
+            +7(978) 941-0960
           </a>
         </div>
 
-        <a href="tel:+79789789789" className={styles.ctaPhone}>
-          +7(978) 792-6774
+        <a href="tel:+79789410960" className={styles.ctaPhone}>
+          +7(978) 941-0960
         </a>
         <button
           type="button"

@@ -1,13 +1,16 @@
 "use client";
 
-import React, { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Zap, Wrench, Accessibility } from "lucide-react";
 import styles from "./Services.module.scss";
 
-const services = [
+const models = [
   {
     icon: Zap,
-    title: "Электрические медицинские кровати",
+    image: "/images/electric-bed.jpg",
+    name: "Электрические медицинские кровати",
     description:
       "Комфортные электрические кровати с дистанционным управлением для оптимальной позиции тела. Идеально подходят для пациентов, которым требуется частая смена положения.",
     features: [
@@ -15,10 +18,13 @@ const services = [
       "Несколько вариантов регулировки кровати для комфортного ухода",
       "Бортики для безопасности пациента при домашней реабилитации",
     ],
+    price: "от 3999₽/мес",
+    link: "/servises/electric-hospital-beds",
   },
   {
+    image: "/images/manual-bed.jpg",
     icon: Wrench,
-    title: "Механические медицинские кровати",
+    name: "Механические медицинские кровати",
     description:
       "Надёжные кровати с ручным приводом, предназначенные для долговременного ухода дома. Прочные материалы для ежедневного использования.",
     features: [
@@ -26,10 +32,13 @@ const services = [
       "Прочная рама медицинской кровати для долгосрочного использования",
       "Лёгкое обслуживание и уход за механической кроватью",
     ],
+    price: "от 3999₽/мес",
+    link: "/servises/manual-hospital-beds",
   },
   {
+    image: "/images/wheelchair.jpg",
     icon: Accessibility,
-    title: "Инвалидные коляски",
+    name: "Инвалидные коляски",
     description:
       "Лёгкие и эргономичные коляски для передвижения дома и на улице. Созданы для комфорта при длительном использовании.",
     features: [
@@ -37,10 +46,10 @@ const services = [
       "Эргономичное сиденье коляски для длительного комфорта",
       "Складная конструкция коляски для хранения и транспортировки",
     ],
+    price: "от 1499₽/мес",
+    link: "/servises/wheelchairs",
   },
 ];
-
-const cardOffsetClasses = [styles.cardOffsetUp, "", styles.cardOffsetDown];
 
 export const ServicesSection: FC = () => {
   const [visibleCards, setVisibleCards] = useState<boolean[]>([
@@ -73,50 +82,67 @@ export const ServicesSection: FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="services" className={styles.section}>
+    <section ref={sectionRef} id="models" className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>Наши услуги</h2>
-        <div className={styles.underline} />
-        <p className={styles.description}>
+        <div className={styles.titleUnderline} />
+        <p className={styles.subtitle}>
           Аренда качественного медицинского оборудования с доставкой на дом,
-          профессиональной установкой и поддержкой.
+          профессиональной установкой и поддержкой. Самые популярные модели
+          медицинского оборудования для аренды, проверенные семьями и
+          специалистами здравоохранения.
         </p>
-      </div>
+        <div className={styles.grid}>
+          {models.map((model, i) => {
+            const Icon = model.icon;
+            return (
+              <div
+                key={model.name}
+                data-index={i}
+                className={`${styles.card} ${
+                  visibleCards[i] ? styles.cardVisible : styles.cardHidden
+                }`}
+              >
+                {/* Image */}
+                <div className={styles.imageWrap}>
+                  <Image
+                    src={model.image}
+                    alt={model.name}
+                    fill
+                    className={styles.image}
+                  />
+                  <div className={styles.imageOverlay} />
+                </div>
 
-      <div className={styles.grid}>
-        {services.map((service, i) => {
-          const Icon = service.icon;
-          const offsetClass = cardOffsetClasses[i];
-          const cardClass = [
-            styles.card,
-            offsetClass,
-            visibleCards[i] ? styles.cardVisible : styles.cardHidden,
-          ]
-            .filter(Boolean)
-            .join(" ");
-          return (
-            <div
-              key={service.title}
-              data-index={i}
-              className={cardClass}
-              style={{ transitionDelay: `${i * 150}ms` }}
-            >
-              <div className={styles.iconWrap}>
-                <Icon className={styles.icon} />
+                {/* Content */}
+                <div className={styles.content}>
+                  <div className={styles.titleHeader}>
+                    {" "}
+                    <Icon className={styles.icon} />
+                    <h3 className={styles.cardTitle}>{model.name}</h3>
+                  </div>
+
+                  <p className={styles.cardDescription}>{model.description}</p>
+
+                  <ul className={styles.features}>
+                    {model.features.map((feature) => (
+                      <li key={feature} className={styles.feature}>
+                        <span className={styles.bullet} />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className={styles.footer}>
+                    <span className={styles.price}>{model.price}</span>
+                    <Link href={model.link} className={styles.button}>
+                      Подробнее
+                    </Link>
+                  </div>
+                </div>
               </div>
-              <h3 className={styles.cardTitle}>{service.title}</h3>
-              <p className={styles.cardDescription}>{service.description}</p>
-              <ul className={styles.featureList}>
-                {service.features.map((feature) => (
-                  <li key={feature} className={styles.featureItem}>
-                    <span className={styles.featureDot} />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );

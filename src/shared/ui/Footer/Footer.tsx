@@ -6,10 +6,10 @@ import { AppLink } from "@/shared/ui/AppLink";
 
 const footerLinks = [
   { href: "/", label: "Главная" },
-  { href: "/arenda-elektricheskie-krovati", label: "Электрические кровати" },
-  { href: "/arenda-mehanicheskie-krovati", label: "Механические кровати" },
-  { href: "/arenda-kolyaski", label: "Инвалидные коляски" },
-  { href: "/dostavka-meditsinskih-krovatey", label: "Доставка и установка" },
+  { href: "/servises/electric-hospital-beds", label: "Электрические кровати" },
+  { href: "/servises/manual-hospital-beds", label: "Механические кровати" },
+  { href: "/servises/wheelchairs", label: "Инвалидные коляски" },
+  { href: "/delivery-and-installation", label: "Доставка и установка" },
   { href: "/articles", label: "Полезные статьи" },
 ];
 
@@ -48,9 +48,9 @@ export const SiteFooter: FC = () => {
         <div>
           <h4 className={styles.sectionTitle}>Контакты</h4>
           <div className={styles.contactList}>
-            <a href="tel:+15550001234" className={styles.contactLink}>
+            <a href="tel:+79789410960" className={styles.contactLink}>
               <Phone className={styles.contactIcon} />
-              +7 (978) 792-6774
+              +7 (978) 941-0960
             </a>
             <a href="mailto:info@medrent.com" className={styles.contactLink}>
               <Mail className={styles.contactIcon} />
