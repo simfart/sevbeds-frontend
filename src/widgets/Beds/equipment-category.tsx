@@ -53,8 +53,8 @@ export function EquipmentCategory({
   images,
   features,
   benefits,
-  ctaText = "Request a Quote",
-  ctaHref = "#contact",
+  // ctaText = "Request a Quote",
+  // ctaHref = "#contact",
 }: EquipmentCategoryProps) {
   const [activeImage, setActiveImage] = useState(0);
 

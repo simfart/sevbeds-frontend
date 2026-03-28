@@ -1,6 +1,3 @@
-import { TestimonialsSection } from "@/widgets/Testimonials";
-
 export default function ElectricHospitalBedsPage() {
-    return <TestimonialsSection />;
-  }
-  
+  return <div>Manual Hospital Beds</div>;
+}
