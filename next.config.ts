@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
   eslint: { ignoreDuringBuilds: false },
   typescript: { ignoreBuildErrors: false },
   // опционально: если бэкенд на другом порту
