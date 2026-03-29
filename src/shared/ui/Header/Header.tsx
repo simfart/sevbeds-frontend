@@ -93,7 +93,7 @@ export const Header: FC = () => {
       <nav className={styles.nav}>
         <AppLink href="/" className={styles.logo}>
           <Image
-            src="/images/M-logo-center.png"
+            src="/images/M-logo1.png"
             alt="Логотип компании Медивера"
             width={100}
             height={100}
