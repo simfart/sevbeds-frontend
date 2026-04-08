@@ -330,39 +330,3 @@
     box-shadow: var(--teal-glow2);
   }
 }
-
-.cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 3.5rem;
-  padding: 0 1.5rem;
-  border: none;
-  border-radius: 0.75rem;
-  font-family: var(--font-serif, serif);
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  color: var(--accent-foreground);
-  background-color: var(--accent);
-  box-shadow: var(--silver-glow2);
-  transition:
-    background-color 0.3s ease,
-    box-shadow 0.3s ease;
-
-  &:hover {
-    background-color: color-mix(in srgb, var(--accent) 90%, black);
-    box-shadow: var(--teal-glow2);
-  }
-
-  &:focus-visible {
-    outline: none;
-    box-shadow:
-      var(--teal-glow2),
-      0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
-  }
-}

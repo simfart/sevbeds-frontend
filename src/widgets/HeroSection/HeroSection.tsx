@@ -3,6 +3,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./HeroSection.module.scss";
+import { ContactCta } from "@/shared/ui/ContactCta";
 
 export const HeroSection: FC = () => {
   const [offsetY, setOffsetY] = useState(0);
@@ -57,29 +58,13 @@ export const HeroSection: FC = () => {
             Функциональные электрические и механические кровати для ухода за
             больными. Привезём и установим в течение 24 часов.
           </p>
-          <button
-            type="button"
+          <ContactCta
+            text="Оставить заявку"
             onClick={scrollToContact}
             className={`${styles.cta} ${visible}`}
-          >
-            Оставить заявку
-            <svg
-              className={styles.ctaIcon}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </button>
+          />
         </div>
       </div>
     </section>
   );
-}
+};

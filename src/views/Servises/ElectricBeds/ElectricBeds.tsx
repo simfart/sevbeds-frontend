@@ -1,59 +1,73 @@
 import { FC } from "react";
-// import { ImageShowcase } from "@/shared/ui/ImageShowcase";
+import { ImageShowcase } from "@/shared/ui/ImageShowcase";
 import styles from "./ElectricBeds.module.scss";
 
-// const electricBedData = {
-//   title: "Аренда медицинских кроватей с электроприводом",
-//   description:
-//     "Аренда медицинских кроватей с электроприводом — удобное решение для ухода за лежачими пациентами на дому, в период реабилитации после операций, травм или при хронических заболеваниях.Функциональные кровати с электрической регулировкой позволяют менять положение тела без физических усилий, обеспечивая комфорт пациенту и облегчая уход для родственников или медицинского персонала. Мы предлагаем в аренду современные модели медицинских кроватей с доставкой и установкой.",
-//   images: [
-//     "/images/1.1.webp",
-//     "/images/1.2.webp",
-//     "/images/1.3.webp",
-//     "/images/1.4.webp",
-//   ],
-//   features: [
-//     { icon: "settings" as const, label: "Electric Controls" },
-//     { icon: "heart" as const, label: "Pressure Relief" },
-//     { icon: "shield" as const, label: "Side Rails" },
-//     { icon: "wrench" as const, label: "Easy Assembly" },
-//   ],
-//   benefits: [
-//     {
-//       title: "Free Same-Day Delivery",
-//       description:
-//         "We deliver and set up your equipment the same day you order, ensuring you get the care you need right away.",
-//     },
-//     {
-//       title: "24/7 Support",
-//       description:
-//         "Our medical equipment specialists are available around the clock to assist you with any questions or concerns.",
-//     },
-//     {
-//       title: "Flexible Rental Terms",
-//       description:
-//         "Choose from daily, weekly, or monthly rental options with no long-term commitment required.",
-//     },
-//     {
-//       title: "Sanitized & Inspected",
-//       description:
-//         "All equipment is professionally cleaned and thoroughly inspected before each rental.",
-//     },
-//   ],
-// };
+const electricBedData = {
+  title: "Аренда медицинских кроватей с электроприводом",
+  description:
+    "Аренда медицинских кроватей с электроприводом — это удобное и современное решение для ухода за лежачими пациентами на дому. Такие кровати широко используются в период реабилитации после операций, травм, инсультов, а также при хронических заболеваниях. Электрическая регулировка позволяет без усилий менять положение тела пациента, снижая нагрузку на ухаживающих и повышая уровень комфорта. Мы предлагаем функциональные медицинские кровати в аренду с доставкой, установкой и подробной консультацией по использованию.",
+  images: [
+    "/images/1.1.webp",
+    "/images/1.2.webp",
+    "/images/1.3.webp",
+    "/images/1.4.webp",
+  ],
+  features: [
+    { icon: "settings" as const, label: "Электрическая регулировка положения" },
+    // { icon: "activity" as const, label: "Профилактика пролежней" },
+    { icon: "rotateCw" as const, label: "Функция переворота пациента" },
+    { icon: "armchair" as const, label: "Положение «кардио-кресло»" },
+    { icon: "arrowUpDown" as const, label: "Положение Фаулера" },
+    { icon: "bed" as const, label: "Встроенное туалетное устройство" },
+    // { icon: "shield" as const, label: "Боковые защитные ограждения" },
+    { icon: "userCheck" as const, label: "Управление с пульта" },
+  ],
+  benefits: [
+    {
+      title: "Электрическое управление с пульта",
+      description:
+        "Кровать оснащена удобным пультом управления, с помощью которого можно поднимать изголовье, регулировать положение ног и менять общую конфигурацию ложа. Пациент может самостоятельно менять положение тела без посторонней помощи.",
+    },
+    {
+      title: "Положение кардио-кресла",
+      description:
+        "Позволяет перевести пациента в полусидячее положение, облегчая дыхание, снижая нагрузку на сердце и улучшая кровообращение. Особенно важно в период восстановления и при хронических заболеваниях.",
+    },
+    {
+      title: "Функция переворота пациента",
+      description:
+        "Кровать позволяет легко переворачивать пациента на правый и левый бок с помощью пульта. Это значительно упрощает уход и помогает в профилактике пролежней.",
+    },
+    {
+      title: "Положение Фаулера",
+      description:
+        "Специальное положение с приподнятой спиной и согнутыми коленями помогает снизить нагрузку на позвоночник, улучшает кровообращение и предотвращает образование пролежней.",
+    },
+    {
+      title: "Туалетное устройство",
+      description:
+        "Встроенное санитарное устройство обеспечивает комфортное использование кровати без необходимости перемещения пациента. Управляется с пульта.",
+    },
+    {
+      title: "Дополнительные удобства",
+      description:
+        "Кровать может комплектоваться мойкой для головы, штангой для подтягивания, складными ограждениями и колесами с тормозами для удобного перемещения и безопасной фиксации.",
+    },
+  ],
+};
 
 export const ElectricBeds: FC = () => {
   return (
     <div id="electric-beds" className={styles.anchor}>
-      {/* <ImageShowcase
+      <ImageShowcase
         title={electricBedData.title}
         description={electricBedData.description}
         images={electricBedData.images}
         features={electricBedData.features}
         benefits={electricBedData.benefits}
-        ctaText="Request a Quote"
-        ctaHref="#contact"
-      /> */}
+        ctaText="Оставить заявку"
+        ctaHref="/#contact"
+      />
     </div>
   );
 };

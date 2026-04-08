@@ -1,6 +1,14 @@
 "use client";
 
-import { FC, useEffect, useRef, useState } from "react";
+import {
+  FC,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import styles from "./Header.module.scss";
@@ -66,7 +74,12 @@ export const Header: FC = () => {
   const [open, setOpen] = useState(false);
 
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [menuPos, setMenuPos] = useState<{ top: number; left: number } | null>(
+    null,
+  );
   const servicesRef = useRef<HTMLDivElement>(null);
+  const servicesTriggerRef = useRef<HTMLButtonElement>(null);
+  const servicesMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -74,19 +87,51 @@ export const Header: FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const updateMenuPosition = useCallback(() => {
+    const el = servicesTriggerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const menuWidth = 240;
+    const left = Math.min(rect.left, window.innerWidth - menuWidth - 8);
+    setMenuPos({ top: rect.bottom + 10, left: Math.max(8, left) });
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!servicesOpen) return;
+    updateMenuPosition();
+  }, [servicesOpen, scrolled, updateMenuPosition]);
+
+  useEffect(() => {
+    if (!servicesOpen) return;
+    updateMenuPosition();
+    window.addEventListener("scroll", updateMenuPosition, true);
+    window.addEventListener("resize", updateMenuPosition);
+    return () => {
+      window.removeEventListener("scroll", updateMenuPosition, true);
+      window.removeEventListener("resize", updateMenuPosition);
+    };
+  }, [servicesOpen, updateMenuPosition]);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        servicesRef.current &&
-        !servicesRef.current.contains(event.target as Node)
-      ) {
-        setServicesOpen(false);
-      }
+      const t = event.target as Node;
+      if (servicesRef.current?.contains(t)) return;
+      if (servicesMenuRef.current?.contains(t)) return;
+      setServicesOpen(false);
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    if (!servicesOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setServicesOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [servicesOpen]);
 
   return (
     <header className={`${styles.root} ${scrolled ? styles.scrolled : ""}`}>
@@ -102,8 +147,12 @@ export const Header: FC = () => {
         <div className={styles.desktopLinks}>
           <div className={styles.dropdown} ref={servicesRef}>
             <button
+              ref={servicesTriggerRef}
+              type="button"
               className={styles.dropdownTrigger}
               onClick={() => setServicesOpen(!servicesOpen)}
+              aria-expanded={servicesOpen}
+              aria-haspopup="true"
             >
               Аренда медтехники
               <IconChevron
@@ -113,22 +162,36 @@ export const Header: FC = () => {
               />
             </button>
 
-            <div
-              className={`${styles.dropdownMenu} ${
-                servicesOpen ? styles.open : ""
-              }`}
-            >
-              {links.map((link) => (
-                <AppLink
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={styles.mobileLink}
+            {servicesOpen &&
+              menuPos &&
+              typeof document !== "undefined" &&
+              createPortal(
+                <div
+                  ref={servicesMenuRef}
+                  className={styles.dropdownMenuPortal}
+                  style={{
+                    top: menuPos.top,
+                    left: menuPos.left,
+                  }}
+                  role="menu"
                 >
-                  {link.label}
-                </AppLink>
-              ))}
-            </div>
+                  {links.map((link) => (
+                    <AppLink
+                      key={link.href}
+                      href={link.href}
+                      role="menuitem"
+                      onClick={() => {
+                        setOpen(false);
+                        setServicesOpen(false);
+                      }}
+                      className={styles.mobileLink}
+                    >
+                      {link.label}
+                    </AppLink>
+                  ))}
+                </div>,
+                document.body,
+              )}
           </div>
 
           <AppLink href="/delivery-and-installation" className={styles.link}>

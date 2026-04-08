@@ -2,6 +2,7 @@ import { FC } from "react";
 import { HeroSection } from "@/widgets/HeroSection";
 import { AdvantagesSection } from "@/widgets/Advantages";
 import { ServicesSection } from "@/widgets/Services";
+import { ContactSection } from "@/widgets/ContactForm";
 // import { TestimonialsSection } from "@/widgets/Testimonials";
 
 export const HomePage: FC = () => {
@@ -11,6 +12,7 @@ export const HomePage: FC = () => {
       <ServicesSection />
       <AdvantagesSection />
       {/* <TestimonialsSection /> */}
+      <ContactSection />
     </>
   );
 };

@@ -13,6 +13,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { ContactCta } from "@/shared/ui/ContactCta";
 
 // Icon map for serializable icon names
 const iconMap = {
@@ -173,9 +174,7 @@ export const ImageShowcase: FC<ImageShowcaseProps> = ({
                       />
                     </div>
                     <div className={styles.benefitBody}>
-                      <h3 className={styles.benefitTitle}>
-                        {benefit.title}
-                      </h3>
+                      <h3 className={styles.benefitTitle}>{benefit.title}</h3>
                       <p className={styles.benefitDescription}>
                         {benefit.description}
                       </p>
@@ -186,9 +185,12 @@ export const ImageShowcase: FC<ImageShowcaseProps> = ({
             </div>
 
             {/* CTA */}
-            <a href={ctaHref} className={styles.cta}>
-              {ctaText}
-            </a>
+            <ContactCta
+              text={ctaText}
+              href="/#contact"
+              className={styles.cta}
+              variant="accent"
+            />
           </div>
         </div>
       </div>
