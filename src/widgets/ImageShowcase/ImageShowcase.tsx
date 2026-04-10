@@ -38,7 +38,7 @@ const iconMap = {
 
 type IconName = keyof typeof iconMap;
 
-interface Feature {
+export interface Feature {
   icon: IconName;
   label: string;
 }

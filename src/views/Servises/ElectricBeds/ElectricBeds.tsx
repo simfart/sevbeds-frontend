@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ImageShowcase } from "@/widgets/ImageShowcase";
+import { ImageShowcase, type Feature } from "@/widgets/ImageShowcase";
 import styles from "./ElectricBeds.module.scss";
 
 const electricBedData = {
@@ -19,7 +19,7 @@ const electricBedData = {
     { icon: "bed", label: "Встроенное туалетное устройство" },
     { icon: "shield", label: "Боковые защитные ограждения" },
     { icon: "user", label: "Управление с пульта" },
-  ],
+  ] satisfies Feature[],
   benefits: [
     {
       title: "Электрическое управление с пульта",
