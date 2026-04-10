@@ -13,8 +13,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { ContactCta } from "@/shared/ui/ContactCta";
-
+import { LinkCta } from "@/shared/ui/LinkCta";
 // Icon map for serializable icon names
 const iconMap = {
   truck: Truck,
@@ -184,13 +183,7 @@ export const ImageShowcase: FC<ImageShowcaseProps> = ({
               </ul>
             </div>
 
-            {/* CTA */}
-            <ContactCta
-              text={ctaText}
-              href="/#contact"
-              className={styles.cta}
-              variant="accent"
-            />
+            <LinkCta href="/#contact" variant="accent" />
           </div>
         </div>
       </div>

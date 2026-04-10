@@ -1,9 +1,9 @@
 "use client";
 
 import { FC, useEffect, useRef, useState } from "react";
-import { ContactCta } from "@/shared/ui/ContactCta";
+import { ButtonCta } from "@/shared/ui/ContactCta";
 
-import styles from "./Contact.module.scss";
+import styles from "./ContactSection.module.scss";
 
 export const ContactSection: FC = () => {
   const [visible, setVisible] = useState(false);
@@ -83,13 +83,11 @@ export const ContactSection: FC = () => {
               />
             </div>
 
-            <ContactCta
+            <ButtonCta
               type="submit"
               disabled={submitted}
               showIcon={!submitted}
               text={submitted ? "Заявка отправлена!" : "Отправить заявку"}
-              variant="accent"
-              className={styles.submitButton}
             />
           </div>
         </form>

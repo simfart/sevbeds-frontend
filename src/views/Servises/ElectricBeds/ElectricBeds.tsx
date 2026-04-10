@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ImageShowcase } from "@/shared/ui/ImageShowcase";
+import { ImageShowcase } from "@/widgets/ImageShowcase";
 import styles from "./ElectricBeds.module.scss";
 
 const electricBedData = {

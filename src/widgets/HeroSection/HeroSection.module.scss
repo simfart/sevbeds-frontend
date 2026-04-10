@@ -116,43 +116,6 @@
   }
 }
 
-.cta {
-  margin-top: 2.5rem;
-  display: inline-flex;
-  align-items: center;
-  padding: 1rem 2rem;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--primary-foreground);
-  background: var(--primary);
-  border: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  box-shadow:
-    0 10px 15px -3px rgb(0 0 0 / 0.1),
-    0 4px 6px -4px rgb(0 0 0 / 0.1);
-  transition:
-    opacity 1s,
-    transform 1s,
-    box-shadow 0.5s,
-    transform 0.5s;
-  transition-delay: 400ms;
-
-  &:hover {
-    box-shadow: 0 0 30px rgba(192, 192, 192, 0.5);
-    transform: scale(1.05);
-  }
-}
-
-.ctaIcon {
-  margin-left: 0.5rem;
-  width: 1rem;
-  height: 1rem;
-}
-
 .visible {
   opacity: 1;
   transform: translateY(0);

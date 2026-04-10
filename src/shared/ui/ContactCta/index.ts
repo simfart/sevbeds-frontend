@@ -1,1 +1,1 @@
-export { ContactCta } from "./ContactCta";
+export { ButtonCta } from "./ButtonCta";

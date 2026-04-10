@@ -3,7 +3,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./HeroSection.module.scss";
-import { ContactCta } from "@/shared/ui/ContactCta";
+import { LinkCta } from "@/shared/ui/LinkCta";
 
 export const HeroSection: FC = () => {
   const [offsetY, setOffsetY] = useState(0);
@@ -23,10 +23,6 @@ export const HeroSection: FC = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const visible = isVisible ? styles.visible : styles.hidden;
 
@@ -58,11 +54,7 @@ export const HeroSection: FC = () => {
             Функциональные электрические и механические кровати для ухода за
             больными. Привезём и установим в течение 24 часов.
           </p>
-          <ContactCta
-            text="Оставить заявку"
-            onClick={scrollToContact}
-            className={`${styles.cta} ${visible}`}
-          />
+          <LinkCta href="/#contact" variant="accent" />
         </div>
       </div>
     </section>
