@@ -1,20 +1,29 @@
 .section {
-  width: 100%;
-  padding-block: 3rem;
+  position: relative;
+  padding: 6rem 1.5rem 3rem;
+}
 
-  @media (min-width: 768px) {
-    padding-block: 5rem;
+@media (min-width: 768px) {
+  .section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    // padding-left: 6rem;
+    // padding-right: 6rem;
+    padding: 9rem 1.5rem 3rem;
   }
 }
 
 .container {
+  margin: 0 auto;
   max-width: 72rem;
-  margin-inline: auto;
-  padding-inline: 1rem;
-
-  @media (min-width: 768px) {
-    padding-inline: 1.5rem;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pageHeader {
@@ -27,11 +36,9 @@
 }
 
 .title {
-  margin: 0 0 1rem;
   font-family: var(--font-serif, serif);
   font-size: 1.875rem;
-  font-weight: 600;
-  line-height: 1.2;
+  font-weight: 700;
   color: var(--foreground);
   text-wrap: balance;
 
@@ -43,14 +50,21 @@
     font-size: 3rem;
   }
 }
+.titleUnderline {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  height: 1px;
+  width: 4rem;
+  background: var(--accent);
+}
 
 .description {
-  margin: 0 auto;
-  max-width: 42rem;
-  font-size: 1rem;
-  line-height: 1.625;
+  margin-top: 1rem;
   color: var(--muted-foreground);
-  text-wrap: pretty;
+  line-height: 1.625;
+  font-size: 1rem;
+  text-align: justify;
 
   @media (min-width: 768px) {
     font-size: 1.125rem;
@@ -60,7 +74,7 @@
 .twoColumn {
   display: grid;
   gap: 2rem;
-
+  margin-bottom: 2rem;
   @media (min-width: 1024px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 3rem;
@@ -92,7 +106,6 @@
 .contentColumn {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 
 .panelTitle {
@@ -112,8 +125,12 @@
 
 .featuresGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .featureIconWrap {
@@ -234,17 +251,10 @@
     box-shadow: var(--teal-glow2);
   }
 
-  // `focus:ring-2 ring-accent`: кольцо на :focus (и клик), не только :focus-visible.
   &:focus {
     outline: none;
     box-shadow: 0 0 0 2px var(--accent);
   }
-
-  // &:hover:focus {
-  //   box-shadow:
-  //     var(--teal-glow2),
-  //     0 0 0 2px var(--accent);
-  // }
 
   svg {
     flex-shrink: 0;
@@ -324,9 +334,6 @@
   transition:
     background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    background: color-mix(in srgb, white 50%, transparent);
-    box-shadow: var(--teal-glow2);
-  }
+  background: color-mix(in srgb, white 50%, transparent);
+  box-shadow: var(--teal-glow2);
 }

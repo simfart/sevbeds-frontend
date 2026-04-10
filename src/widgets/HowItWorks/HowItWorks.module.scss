@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  padding: 6rem 1.5rem;
+  padding: 3rem 1.5rem;
 
   @media (min-width: 768px) {
     padding-left: 3rem;
@@ -19,7 +19,12 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--primary), transparent);
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--primary),
+    transparent
+  );
 }
 
 .container {
@@ -74,7 +79,9 @@
   border: 1px solid var(--glass-border);
   background: var(--glass);
   padding: 2rem;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
   backdrop-filter: blur(24px);
   transition: all 0.7s ease;
 }

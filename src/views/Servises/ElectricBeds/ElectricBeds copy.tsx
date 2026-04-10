@@ -13,12 +13,12 @@ const electricBedData = {
     "/images/1.4.webp",
   ],
   features: [
-    { icon: "settings", label: "Электрическая регулировка положения" },
-    { icon: "activity", label: "Профилактика пролежней" },
+    { icon: "settings", label: "Механическая регулировка положения секций" },
+    { icon: "armchair", label: "Положение «кардио-кресло»" },
+    { icon: "shield", label: "Складные боковые ограждения с фиксаторами" },
     { icon: "rotate", label: "Функция переворота пациента" },
-    { icon: "bed", label: "Встроенное туалетное устройство" },
-    { icon: "shield", label: "Боковые защитные ограждения" },
-    { icon: "user", label: "Управление с пульта" },
+    { icon: "check", label: "Встроенное туалетное устройство" },
+    { icon: "arrows", label: "Положение Фаулера" },
   ],
   benefits: [
     {

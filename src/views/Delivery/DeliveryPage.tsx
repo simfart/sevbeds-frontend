@@ -8,7 +8,6 @@ import styles from "./DeliveryPage.module.scss";
 export const DeliveryPage: FC = () => {
   return (
     <main className={styles.page}>
-      {/* HERO / H1 */}
       <section className={styles.hero}>
         <div className={styles.container}>
           <h1 className={styles.title}>
@@ -32,52 +31,6 @@ export const DeliveryPage: FC = () => {
       <HowItWorksSection />
       <FaqSection />
 
-      {/* CONDITIONS */}
-      <section className={styles.sectionAlt}>
-        <div className={styles.container}>
-          <h2 className={styles.h2}>Условия доставки</h2>
-          <ul className={styles.list}>
-            <li>Доставка по Севастополю и пригородам</li>
-            <li>Возможна доставка в день обращения</li>
-            <li>Подъем на этаж (включая без лифта)</li>
-            <li>Профессиональная сборка и установка</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className={styles.section}>
-        <div className={styles.container}>
-          <h2 className={styles.h2}>Часто задаваемые вопросы</h2>
-
-          <div className={styles.faq}>
-            <div className={styles.faqItem}>
-              <h3>Сколько стоит доставка?</h3>
-              <p>
-                Стоимость зависит от района и условий подъема. Уточняется при
-                заказе.
-              </p>
-            </div>
-
-            <div className={styles.faqItem}>
-              <h3>Как быстро вы доставляете?</h3>
-              <p>
-                Обычно доставка возможна в день обращения или на следующий день.
-              </p>
-            </div>
-
-            <div className={styles.faqItem}>
-              <h3>Входит ли установка?</h3>
-              <p>Да, установка и настройка включены в услугу.</p>
-            </div>
-
-            <div className={styles.faqItem}>
-              <h3>Поднимаете без лифта?</h3>
-              <p>Да, мы поднимаем оборудование на любой этаж.</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className={styles.cta}>
