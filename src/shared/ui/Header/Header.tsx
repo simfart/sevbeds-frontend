@@ -65,9 +65,9 @@ const links = [
   },
   {
     href: "/servises/manual-hospital-beds",
-    label: "Механических медицинские кроватей",
+    label: "Механические медицинские кровати",
   },
-  { href: "/servises/wheelchairs", label: "Инвалидных колясок" },
+  { href: "/servises/wheelchairs", label: "Инвалидные коляски" },
 ];
 
 export const Header: FC = () => {
@@ -200,7 +200,7 @@ export const Header: FC = () => {
                         setOpen(false);
                         setServicesOpen(false);
                       }}
-                      className={styles.mobileLink}
+                      className={styles.dropdownItem}
                     >
                       {link.label}
                     </AppLink>

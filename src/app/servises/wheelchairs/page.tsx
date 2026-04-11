@@ -1,3 +1,5 @@
-export default function ElectricHospitalBedsPage() {
-  return <div></div>;
+import { WheelchairsView } from "@/views/Servises/WheelchairsView";
+
+export default function WheelchairsPage() {
+  return <WheelchairsView />;
 }

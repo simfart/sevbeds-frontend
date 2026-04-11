@@ -18,6 +18,10 @@ import {
   Armchair,
   ArrowUpDown,
   UserCheck,
+  Move,
+  Navigation,
+  Package,
+  Accessibility,
 } from "lucide-react";
 import { LinkCta } from "@/shared/ui/LinkCta";
 // Icon map for serializable icon names
@@ -34,6 +38,10 @@ const iconMap = {
   armchair: Armchair,
   arrows: ArrowUpDown,
   user: UserCheck,
+  move: Move,
+  navigation: Navigation,
+  package: Package,
+  accessibility: Accessibility,
 } as const;
 
 type IconName = keyof typeof iconMap;

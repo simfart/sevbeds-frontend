@@ -19,7 +19,7 @@ export const SiteFooter: FC = () => {
       <div className={styles.content}>
         <div>
           <Image
-            src="/images/M-logo-light.png"
+            src="/images/Logo-light.png"
             alt="Логотип компании Медивера"
             width={100}
             height={100}

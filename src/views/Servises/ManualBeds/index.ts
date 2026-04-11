@@ -1,0 +1,1 @@
+export { ManualBeds } from "./ManualBeds";
