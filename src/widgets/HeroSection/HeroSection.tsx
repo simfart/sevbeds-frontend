@@ -40,6 +40,14 @@ export const HeroSection: FC = () => {
           priority
           quality={90}
         />
+        <Image
+          src="/images/hero-mobile.png"
+          alt="Modern luxury home care setting with natural sunlight"
+          fill
+          className={styles.mobileImage}
+          priority
+          quality={90}
+        />
       </div>
 
       <div className={styles.overlay} />

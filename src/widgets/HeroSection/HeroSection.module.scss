@@ -14,6 +14,18 @@
 
 .bgImage {
   object-fit: cover;
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.mobileImage {
+  object-fit: cover;
+  display: block;
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 .overlay {
