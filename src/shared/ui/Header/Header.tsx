@@ -11,6 +11,7 @@ import {
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { LinkCta } from "@/shared/ui/LinkCta/LinkCta";
 import styles from "./Header.module.scss";
 
 const IconChevron = ({ className }: { className?: string }) => (
@@ -60,13 +61,13 @@ const IconX = ({ className }: { className?: string }) => (
 const links = [
   {
     href: "/servises/electric-hospital-beds",
-    label: "Аренда кроватей с электроприводом",
+    label: "Медицинские кровати с электроприводом",
   },
   {
     href: "/servises/manual-hospital-beds",
-    label: "Аренда механических кроватей",
+    label: "Механических медицинские кроватей",
   },
-  { href: "/servises/wheelchairs", label: "Аренда инвалидных колясок" },
+  { href: "/servises/wheelchairs", label: "Инвалидных колясок" },
 ];
 
 export const Header: FC = () => {
@@ -80,6 +81,7 @@ export const Header: FC = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
   const servicesTriggerRef = useRef<HTMLButtonElement>(null);
   const servicesMenuRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -133,8 +135,22 @@ export const Header: FC = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, [servicesOpen]);
 
+  useEffect(() => {
+    if (!open) return;
+    const handlePointerDown = (event: MouseEvent) => {
+      const t = event.target as Node;
+      if (headerRef.current?.contains(t)) return;
+      setOpen(false);
+    };
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [open]);
+
   return (
-    <header className={`${styles.root} ${scrolled ? styles.scrolled : ""}`}>
+    <header
+      ref={headerRef}
+      className={`${styles.root} ${scrolled ? styles.scrolled : ""}`}
+    >
       <nav className={styles.nav}>
         <AppLink href="/" className={styles.logo}>
           <Image
@@ -198,9 +214,9 @@ export const Header: FC = () => {
             Доставка и установка
           </AppLink>
 
-          <AppLink href="/articles" className={styles.link}>
+          {/* <AppLink href="/articles" className={styles.link}>
             Полезные статьи
-          </AppLink>
+          </AppLink> */}
 
           <a href="tel:+79789410960" className={styles.cta}>
             +7(978) 941-0960
@@ -226,23 +242,35 @@ export const Header: FC = () => {
 
       <div className={`${styles.mobilePanel} ${open ? styles.open : ""}`}>
         <nav className={styles.mobileInner}>
-          {links.map((link) => (
-            <AppLink
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className={styles.mobileLink}
-            >
-              {link.label}
-            </AppLink>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setOpen(false)}
-            className={styles.mobileCta}
+          <div className={styles.mobileTitleLink}>
+            Аренда медицинского оборудования
+          </div>
+          <div className={styles.mobileLinkVariants}>
+            {links.map((link) => (
+              <AppLink
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={styles.mobileLinkVariant}
+              >
+                {link.label}
+              </AppLink>
+            ))}
+          </div>
+
+          <AppLink
+            href="/delivery-and-installation"
+            className={styles.mobileLink}
           >
-            Заказать аренду
-          </a>
+            Доставка и установка
+          </AppLink>
+          <div className={styles.mobileCta}>
+            <LinkCta
+              href="/#contact"
+              variant="accent"
+              onClick={() => setOpen(false)}
+            />
+          </div>
         </nav>
       </div>
     </header>

@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, MouseEventHandler, ReactNode } from "react";
 import Link from "next/link";
 import styles from "./LinkCta.module.scss";
 
@@ -7,6 +7,7 @@ export interface LinkCtaProps {
   text?: string;
   children?: ReactNode;
   variant?: "hero" | "accent";
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 export const LinkCta: FC<LinkCtaProps> = ({
@@ -14,12 +15,13 @@ export const LinkCta: FC<LinkCtaProps> = ({
   text = "Оставить заявку",
   children,
   variant = "hero",
+  onClick,
 }) => {
   const linkClass =
     variant === "accent" ? `${styles.link} ${styles.accent}` : styles.link;
 
   return (
-    <Link href={href} className={linkClass}>
+    <Link href={href} className={linkClass} onClick={onClick}>
       <span className={styles.inner}>
         {children ?? (
           <>
