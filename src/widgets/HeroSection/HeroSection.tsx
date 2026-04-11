@@ -41,7 +41,7 @@ export const HeroSection: FC = () => {
           quality={90}
         />
         <Image
-          src="/images/hero-mobile.png"
+          src="/images/hero-mobile2.png"
           alt="Modern luxury home care setting with natural sunlight"
           fill
           className={styles.mobileImage}
