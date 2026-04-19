@@ -1,0 +1,97 @@
+.toast {
+  position: absolute;
+  top: 12px;
+  // left: 12px;
+  right: 12px;
+  // margin: 0 12px;
+  overflow: hidden;
+
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 16px;
+  border-radius: 0.75rem;
+
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  backdrop-filter: blur(24px);
+
+  box-shadow: var(--silver-glow2);
+
+  color: var(--foreground);
+
+  animation: slideDown 0.35s ease;
+}
+
+/* успех / ошибка */
+.success {
+  border-left: 2px solid var(--accent);
+}
+
+.error {
+  border-left: 2px solid #ef4444;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
+
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: var(--accent);
+}
+
+.error .icon {
+  background: color-mix(in srgb, #ef4444 20%, transparent);
+  color: #ef4444;
+}
+
+.text {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  animation: progress 3s linear forwards;
+}
+
+.error .progress {
+  background: #ef4444;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}

@@ -4,6 +4,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { Header } from "@/shared/ui/Header";
 import { SiteFooter } from "@/shared/ui/Footer";
+import { Toaster } from "react-hot-toast";
 
 import styles from "./Layout.module.scss";
 
@@ -40,6 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         // </header>
       )}
       <main className={styles.main}>{children}</main>
+      <Toaster position="top-right" />
       {!isAdmin && <SiteFooter />}
     </div>
   );

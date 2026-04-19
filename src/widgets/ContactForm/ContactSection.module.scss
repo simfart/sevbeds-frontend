@@ -78,6 +78,7 @@
 }
 
 .form {
+  position: relative;
   margin-top: 3rem;
   border-radius: 1rem;
   border: 1px solid var(--glass-border);
@@ -126,4 +127,15 @@
 
 .textarea {
   resize: none;
+}
+
+.fieldError {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+.errorText {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #ef4444;
 }
