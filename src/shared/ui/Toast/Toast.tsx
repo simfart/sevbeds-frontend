@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import styles from "./Toast.module.scss";
 
 type Props = {
@@ -10,6 +10,14 @@ type Props = {
 };
 
 export const Toast: FC<Props> = ({ message, type, onClose }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onClose();
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [message, onClose]);
+
   return (
     <div className={`${styles.toast} ${styles[type]}`}>
       <div className={styles.icon}>{type === "success" ? "✓" : "✕"}</div>

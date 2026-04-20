@@ -2,11 +2,13 @@
 
 import { FC, useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-
 import { ButtonCta } from "@/shared/ui/ContactCta";
 import { Toast } from "@/shared/ui/Toast";
-
 import styles from "./ContactSection.module.scss";
+
+const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE;
+const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE;
+const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_KEY;
 
 const formatPhone = (value: string) => {
   const digits = value.replace(/\D/g, "").slice(0, 11);
@@ -124,15 +126,19 @@ export const ContactSection: FC = () => {
     setLoading(true);
 
     try {
+      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+        throw new Error("EmailJS env variables are missing");
+      }
+
       await emailjs.send(
-        "yandex_service",
-        "template_yt6nwjl",
+        SERVICE_ID,
+        TEMPLATE_ID,
         {
           name,
           phone,
           message,
         },
-        "gVETfiZ6G0_H3iONv",
+        PUBLIC_KEY,
       );
 
       setToast({
