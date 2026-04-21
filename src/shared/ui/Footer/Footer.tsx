@@ -52,15 +52,26 @@ export const SiteFooter: FC = () => {
               <Phone className={styles.contactIcon} />
               +7 (978) 941-0960
             </a>
-            <a href="mailto:info@medrent.com" className={styles.contactLink}>
+            <a
+              href="mailto:medivera92@yandex.com"
+              className={styles.contactLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Mail className={styles.contactIcon} />
-              info@medrent.com
+              medivera92@yandex.com
             </a>
           </div>
 
           {/* Social Icons */}
           <div className={styles.socialList}>
-            <a href="#" aria-label="VK" className={styles.socialLink}>
+            <a
+              href="https://vk.com/club32436534"
+              aria-label="VK"
+              className={styles.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg
                 className={styles.socialIcon}
                 fill="currentColor"
@@ -69,7 +80,13 @@ export const SiteFooter: FC = () => {
                 <path d="M3 7h2.9c.1 0 .3.1.3.3.4 2 1.2 3.8 2.4 5.3.4.5.8.9 1.2 1.1.2.1.3 0 .3-.2v-3c0-.8.5-1.3 1.3-1.3h1.8c.4 0 .7.3.7.7v2.6c0 .3.2.4.4.3.9-.4 1.8-1.4 2.6-2.8.2-.4.5-.6.9-.6h3c.3 0 .4.4.3.7-.5 1.3-1.3 2.5-2.3 3.5-.5.5-.5.8 0 1.2.9.7 1.8 1.6 2.6 2.6.3.4 0 1-.5 1H18c-.5 0-.8-.2-1.1-.5l-1.6-1.9c-.2-.2-.4-.2-.6 0l-.2.2c-.2.2-.3.4-.3.7v1c0 .3-.2.5-.5.5h-1.5c-1.7 0-3.4-.8-5-2.3C5 14.8 3.7 11.6 3 7.6 2.9 7.3 3 7 3.3 7H3z" />
               </svg>
             </a>
-            <a href="#" aria-label="Telegram" className={styles.socialLink}>
+            <a
+              href="https://t.me/rental_honey_bed"
+              aria-label="Telegram"
+              className={styles.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg
                 className={styles.socialIcon}
                 fill="currentColor"

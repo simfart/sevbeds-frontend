@@ -1,20 +1,20 @@
 .section {
   position: relative;
-  padding: 6rem 1.5rem 3rem;
+  padding: 4rem 1.5rem 3rem;
 }
 
-@media (min-width: 768px) {
-  .section {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-}
+// @media (min-width: 768px) {
+//   .section {
+//     padding-left: 3rem;
+//     padding-right: 3rem;
+//   }
+// }
 
-@media (min-width: 1024px) {
-  .section {
-    padding: 9rem 1.5rem 3rem;
-  }
-}
+// @media (min-width: 1024px) {
+//   .section {
+//     padding: 4rem 1.5rem 3rem;
+//   }
+// }
 
 .container {
   margin: 0 auto;

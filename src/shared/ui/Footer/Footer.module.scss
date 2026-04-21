@@ -3,7 +3,7 @@
   border-top: 1px solid var(--border);
   background: var(--foreground);
   color: var(--background);
-  padding: 4rem 1.5rem;
+  padding: 2rem 1.5rem;
 
   @media (min-width: 768px) {
     padding-left: 3rem;
@@ -20,7 +20,7 @@
   margin: 0 auto;
   display: grid;
   max-width: 72rem;
-  gap: 3rem;
+  gap: 2rem;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -109,7 +109,9 @@
   border: 1px solid rgba(245, 245, 245, 0.2);
   border-radius: 9999px;
   color: rgba(245, 245, 245, 0.5);
-  transition: border-color 0.2s, color 0.2s;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
 
   &:hover {
     border-color: var(--accent);
@@ -123,7 +125,7 @@
 }
 
 .bottom {
-  margin: 3rem auto 0;
+  margin: 2rem auto 0;
   max-width: 72rem;
   border-top: 1px solid rgba(245, 245, 245, 0.1);
   padding-top: 2rem;
