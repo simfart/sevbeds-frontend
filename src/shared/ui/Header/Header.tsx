@@ -243,7 +243,7 @@ export const Header: FC = () => {
 
         <a href="tel:+79789410960" className={styles.ctaPhone}>
           <Phone className="w-4 h-4" />
-          <span>+7(978) 941-0960</span>
+          +7(978) 941-0960
         </a>
         <button
           type="button"
