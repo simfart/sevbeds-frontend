@@ -2,6 +2,7 @@
 
 import {
   FC,
+  MouseEvent as ReactMouseEvent,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -13,6 +14,7 @@ import Image from "next/image";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import { LinkCta } from "@/shared/ui/LinkCta/LinkCta";
 import styles from "./Header.module.scss";
+import { Phone } from "lucide-react";
 
 const IconChevron = ({ className }: { className?: string }) => (
   <svg
@@ -82,6 +84,20 @@ export const Header: FC = () => {
   const servicesTriggerRef = useRef<HTMLButtonElement>(null);
   const servicesMenuRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const closeAllMenus = useCallback(() => {
+    setOpen(false);
+    setServicesOpen(false);
+  }, []);
+  const handleHeaderLinkClick = useCallback(
+    (event: ReactMouseEvent<HTMLElement>) => {
+      const target = event.target as HTMLElement;
+      const anchor = target.closest("a");
+      if (!anchor) return;
+      if (anchor.getAttribute("href")?.startsWith("tel:")) return;
+      closeAllMenus();
+    },
+    [closeAllMenus],
+  );
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -150,6 +166,7 @@ export const Header: FC = () => {
     <header
       ref={headerRef}
       className={`${styles.root} ${scrolled ? styles.scrolled : ""}`}
+      onClickCapture={handleHeaderLinkClick}
     >
       <nav className={styles.nav}>
         <AppLink href="/" className={styles.logo}>
@@ -219,12 +236,14 @@ export const Header: FC = () => {
           </AppLink> */}
 
           <a href="tel:+79789410960" className={styles.cta}>
+            <Phone className="w-4 h-4" />
             +7(978) 941-0960
           </a>
         </div>
 
         <a href="tel:+79789410960" className={styles.ctaPhone}>
-          +7(978) 941-0960
+          <Phone className="w-4 h-4" />
+          <span>+7(978) 941-0960</span>
         </a>
         <button
           type="button"

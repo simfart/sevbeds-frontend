@@ -28,7 +28,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
 
   @media (min-width: 768px) {
     padding-left: 3rem;
@@ -73,7 +73,9 @@
   color: var(--primary-foreground);
   transition: all 0.2s;
   text-decoration: none;
-
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   &:hover {
     box-shadow: 0 0 20px var(--silver-glow);
   }
@@ -103,6 +105,9 @@
   letter-spacing: 0.05em;
   color: var(--primary-foreground);
   transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   @media (min-width: 768px) {
     display: none;
   }

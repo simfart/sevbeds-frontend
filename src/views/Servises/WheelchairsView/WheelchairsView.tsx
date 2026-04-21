@@ -1,16 +1,16 @@
 import { FC } from "react";
 import { ImageShowcase, type Feature } from "@/widgets/ImageShowcase";
 import styles from "./WheelchairsView.module.scss";
+import { CategoryPage } from "@/widgets/Beds/CategoryPage";
 
 const wheelchairsData = {
   title: "Аренда инвалидных кресел",
   description:
     "Аренда инвалидного кресла — удобное решение для людей с ограниченной мобильностью. Кресла подходят для восстановления после травм и операций, для пожилых людей, а также для временного использования. Мы предлагаем надежные и комфортные инвалидные коляски с доставкой на дом. Кресла легко управляются, складываются для транспортировки и обеспечивают безопасность и удобство при ежедневном использовании.",
   images: [
-    "/images/1.1.webp",
-    "/images/1.2.webp",
-    "/images/1.3.webp",
-    "/images/1.4.webp",
+    "/images/wheelchair/3.2.png",
+    "/images/wheelchair/3.3.jpeg",
+    "/images/wheelchair/3.4.png",
   ],
   features: [
     {
@@ -59,6 +59,7 @@ export const WheelchairsView: FC = () => {
         ctaText="Оставить заявку"
         ctaHref="/#contact"
       />
+      <CategoryPage />
     </div>
   );
 };
